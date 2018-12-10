@@ -27,6 +27,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      chunksSortMode(a, b) {
+        return a.id === 'polyfills' ? -1 : 1;
+      },
       template: './src/index.html'
     })
   ],
